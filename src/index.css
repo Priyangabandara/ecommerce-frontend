@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Mobile-first responsive utilities */
+.dashboard-card {
+  @apply bg-white rounded-lg shadow-md p-1 sm:p-2 border border-gray-200;
+}
+
+.metric-card {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-1 sm:p-2 shadow-lg;
+}
+
+.chart-container {
+  @apply bg-white rounded-lg shadow-md p-2 sm:p-3 border border-gray-200;
+}
+
+/* Chart height priority - maximize chart space */
+.chart-priority {
+  min-height: 18rem; /* 288px minimum */
+}
+
+@media (min-width: 640px) {
+  .chart-priority {
+    min-height: 20rem; /* 320px on small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .chart-priority {
+    min-height: 24rem; /* 384px on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .chart-priority {
+    min-height: 28rem; /* 448px on large screens */
+  }
+}
+
+/* Ultra Compact KPI cards */
+.kpi-ultra-compact {
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.kpi-ultra-compact .metric-value {
+  font-size: 0.875rem;
+  line-height: 1.1;
+  margin-bottom: 0.125rem;
+}
+
+.kpi-ultra-compact .metric-label {
+  font-size: 0.625rem;
+  line-height: 1;
+  margin-bottom: 0.125rem;
+}
+
+.kpi-ultra-compact .metric-change {
+  padding: 0.125rem 0.375rem;
+  font-size: 0.625rem;
+}
+
+/* Mobile-specific enhancements */
+@media (max-width: 640px) {
+  /* Touch-friendly button sizes */
+  button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile scrolling */
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile-optimized text */
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+  
+  /* Mobile-friendly spacing */
+  .mobile-padding {
+    padding: 1rem;
+  }
+  
+  /* Ensure charts are visible on mobile */
+  .chart-container {
+    min-height: 16rem;
+  }
+  
+  /* Ultra-compact KPI on mobile */
+  .kpi-ultra-compact {
+    padding: 0.125rem;
+    margin-bottom: 0.125rem;
+  }
+  
+  .kpi-ultra-compact .metric-value {
+    font-size: 0.75rem;
+    margin-bottom: 0.0625rem;
+  }
+  
+  .kpi-ultra-compact .metric-label {
+    font-size: 0.5rem;
+    margin-bottom: 0.0625rem;
+  }
+  
+  .kpi-ultra-compact .metric-change {
+    padding: 0.0625rem 0.25rem;
+    font-size: 0.5rem;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .dashboard-card {
+    @apply p-2;
+  }
+  
+  .metric-card {
+    @apply p-2;
+  }
+  
+  .chart-container {
+    @apply p-3;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  .dashboard-card {
+    @apply p-3;
+  }
+  
+  .metric-card {
+    @apply p-3;
+  }
+  
+  .chart-container {
+    @apply p-4;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Disable hover effects on touch devices */
+  .hover\:bg-gray-50:hover {
+    background-color: transparent;
+  }
+  
+  .hover\:border-blue-200:hover {
+    border-color: transparent;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .chart-container {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Ensure charts render properly */
+.echarts-for-react {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Mobile chart optimizations */
+@media (max-width: 768px) {
+  .chart-container {
+    margin-bottom: 1rem;
+  }
+  
+  /* Stack charts vertically on mobile */
+  .grid-cols-1 .chart-container {
+    margin-bottom: 1.5rem;
+  }
+}
