@@ -7,7 +7,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://your-replit-backend.replit.co/$1"
+      "destination": "https://priyanga.pythonanywhere.com/$1"
     }
   ],
   "headers": [
@@ -39,12 +39,7 @@
     }
   ],
   "env": {
-    "REACT_APP_API_URL": "https://your-replit-backend.replit.co",
+    "REACT_APP_API_URL": "https://priyanga.pythonanywhere.com",
     "REACT_APP_ENVIRONMENT": "production"
-  },
-  "functions": {
-    "app/api/**/*.js": {
-      "maxDuration": 10
-    }
   }
 }
