@@ -4,7 +4,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 // Use local backend in development, deployed backend in production
 const API_BASE_URL = isDevelopment 
   ? 'http://localhost:8000' 
-  : 'https://your-replit-backend-url.replit.co';
+  : 'https://priyanga.pythonanywhere.com';
 
 export const api = {
   async getOrders() {
